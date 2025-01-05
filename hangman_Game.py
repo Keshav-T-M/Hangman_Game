@@ -26,3 +26,21 @@ def hangman():
 
     while "_" in display_word(word_to_guess, guessed_letters) and incorrect_guesses < max_guesses:
         guess = input("Guess a letter: ").upper()
+
+        if not guess.isalpha() or len(guess) != 1:
+            print("Invalid input. Please enter a single letter.")
+            continue
+
+        if guess in guessed_letters:
+            print("You've already guessed that letter.")
+            continue
+
+        guessed_letters.append(guess)
+
+        if guess in word_to_guess:
+            print("Correct guess!")
+            print(display_word(word_to_guess, guessed_letters))
+        else:
+            incorrect_guesses += 1
+            print(f"Incorrect guess. You have {max_guesses - incorrect_guesses} guesses left.")
+            print(display_word(word_to_guess, guessed_letters))
