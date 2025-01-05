@@ -44,3 +44,33 @@ def hangman():
             incorrect_guesses += 1
             print(f"Incorrect guess. You have {max_guesses - incorrect_guesses} guesses left.")
             print(display_word(word_to_guess, guessed_letters))
+
+            #this will draw hangman
+            #i tryed to draw with normal string but it not worked so i used raw string
+            if incorrect_guesses == 1:
+                print("   O   ")
+            elif incorrect_guesses == 2:
+                print("   O   ")
+                print(r"   |   ")
+            elif incorrect_guesses == 3:
+                print("   O   ")
+                print(r"  /|   ")
+            elif incorrect_guesses == 4:
+                print("   O   ")
+                print(r"  /|\  ")
+            elif incorrect_guesses == 5:
+                print("   O   ")
+                print(r"  /|\  ")
+                print(r"  /    ")
+            elif incorrect_guesses == 6:
+                print("   O   ")
+                print(r"  /|\  ")
+                print(r"  / \  ")
+
+    if "_" not in display_word(word_to_guess, guessed_letters):
+        print(f"Congratulations! You guessed the word: {word_to_guess}")
+    else:
+        print(f"You ran out of guesses. The word was: {word_to_guess}")
+
+if __name__ == "__main__":
+    hangman()
